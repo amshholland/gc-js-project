@@ -1,6 +1,6 @@
 
 .cards {
-    display: flex;
+    display: flex; /* parent to card */
 	justify-content: space-around;
 	align-items: center;
 	height: 50vh;
