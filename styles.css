@@ -37,8 +37,8 @@ li {
     display: flex; /* parent to card */
 	justify-content: space-around;
 	align-items: center;
-	height: 50vh;
-	width: 50vw;
+	/* height: 50vh;
+	width: 50vw; */
     margin: 15px;
 }
 
@@ -47,7 +47,7 @@ li {
 	height: 100px;
 	border: 1px solid #000;
 	background-color: white;
-    margin: 5px 0px;
+    margin: 5px 5px;
     display: flex;
     justify-content: center;
     align-items: center;
