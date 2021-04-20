@@ -7,6 +7,7 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: 'Monoton', cursive;
+    color: #8E70AD;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -15,7 +16,6 @@ body {
 h1 {
     margin: 0;
     font-size: 36pt;
-
 }
 
 h2 {
@@ -47,6 +47,7 @@ li {
 	height: 675px;
 	width: 350px;
     margin: 15px;
+    
 }
 
 .card {
@@ -58,6 +59,7 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border-radius: 50%; */
 }
 
 img {
