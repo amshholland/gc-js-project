@@ -10,7 +10,7 @@ reset.onclick = () => playing = false;
 let playing;
 
 function setTime() {
-  while (playing) {++totalSeconds;
+  {++totalSeconds;
   secondsLabel.innerHTML = pad(totalSeconds % 60);
   minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));} 
 }
