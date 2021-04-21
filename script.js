@@ -12,3 +12,15 @@ function shuffleCards(array) {
     }
     return array;
 };
+
+// Flip cards after they're clicked
+const cardsDiv = document.querySelector('.cards');
+
+cardsDiv.addEventListener('click', (e) => {
+    if (e.target.className === 'card') {
+        // Simulate card being flipped
+        e.target.classList.toggle('flipCard');
+        // Modify src to different photo
+        e.target.src = 'images/picture2.jpg';
+    }
+});
