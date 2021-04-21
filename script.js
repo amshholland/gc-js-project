@@ -91,7 +91,7 @@ const cardImgs = ["images/picture1.jpg",
     "images/picture6.jpg",
     "images/picture7.jpg",
     "images/picture8.jpg",
-    "images/picture9.jpg"]
+    "images/picture9.jpg"];
 
 // function to shuffle the order of the image array
 function shuffleCards(array) {
@@ -106,7 +106,9 @@ function shuffleCards(array) {
     }
     return array;
 };
-console.log(shuffleCards(cardImgs));
+
+document.body.onload = shuffleCards(cardImgs);
+
 
 // Flip cards after they're clicked
 const cardsDiv = document.querySelector('.cards');
@@ -114,7 +116,7 @@ const cardsDiv = document.querySelector('.cards');
 cardsDiv.addEventListener('click', (e) => {
     let index = e.target.getAttribute('data-index');
     console.log(index);
-    let src = shuffleCards(cardImgs);
+    let src = shuffleCards[index];
 
     if (e.target.className === 'card') {
         // Simulate card being flipped
