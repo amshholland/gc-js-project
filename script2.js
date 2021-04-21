@@ -1,3 +1,4 @@
+"use strict"
 let hour = 0;
 let minute = 0;
 let second = 0;
@@ -5,20 +6,22 @@ let millisecond = 0;
 
 let begin;
 let playing = true;
-
+console.log(playing.value)
 const start = document.getElementById("start");
 console.log(start)
 
 
-start.addEventListener("click",(e) => {
-    timer();
-});
+// start.addEventListener("click",(e) => {
+//     timer();
+// });
 
 reset.onclick = function(){
     return playing = false;
 };
 
-
+start.onclick = function(){
+    timer(playing)
+};
 
 
 function startTimer() {
@@ -37,8 +40,8 @@ function reset() {
 
 
 
-function timer() {
-    while (true){
+function timer(playing) {
+    while (playing === true){
 
     if ((millisecond += 10) == 1000) { // when millisecond is == 1000, it will move to second
         millisecond = 0;
