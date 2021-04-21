@@ -74,6 +74,7 @@
 //     }
 // ];
 
+// Array of images to be shuffled
 const cardImgs = ["images/picture1.jpg",
     "images/picture2.jpg",
     "images/picture3.jpg",
@@ -109,20 +110,23 @@ function shuffleCards(array) {
 
 document.body.onload = shuffleCards(cardImgs);
 
-
 // Flip cards after they're clicked
 const cardsDiv = document.querySelector('.cards');
 
 cardsDiv.addEventListener('click', (e) => {
+    // Gets index set in data-index attribute from img's in HTML doc
     let index = e.target.getAttribute('data-index');
-    console.log(index);
-    let src = shuffleCards[index];
+    // Reference array based on index defined by card clicked's data-index attribute
+    let src = cardImgs[index];
 
     if (e.target.className === 'card') {
         // Simulate card being flipped
         e.target.classList.toggle('flipCard');
+        // Delay card src being changed until after card is flipped
+        setTimeout(() => {
+            e.target.src = src;
+        }, 100)
         // Modify src to different photo
-        e.target.src = src;
+
     }
 });
-
