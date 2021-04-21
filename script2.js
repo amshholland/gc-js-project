@@ -5,7 +5,7 @@ const reset = document.getElementById("reset");
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
 var totalSeconds = 0;
-start.onclick = () => {} setInterval(setTime, 1000);
+start.onclick = () => setInterval(setTime, 1000);
 reset.onclick = () => playing = false;
 let playing;
 
