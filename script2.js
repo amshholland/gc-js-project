@@ -4,11 +4,24 @@ let second = 0;
 let millisecond = 0;
 
 let begin;
+let playing = true;
 
-document.timer.start.onclick = () => start();
-document.timer.reset.onclick = () => reset();
+const start = document.getElementById("start");
+console.log(start)
 
-function start() {
+
+start.addEventListener("click",(e) => {
+    timer();
+});
+
+reset.onclick = function(){
+    return playing = false;
+};
+
+
+
+
+function startTimer() {
     begin = setInterval(() => {timer(); }, 10);
 }
 
@@ -22,7 +35,11 @@ function reset() {
     document.getElementById('millisecond').innerText = '00';
 }
 
+
+
 function timer() {
+    while (true){
+
     if ((millisecond += 10) == 1000) { // when millisecond is == 1000, it will move to second
         millisecond = 0;
         second++;
@@ -37,9 +54,12 @@ function timer() {
     }
     document.getElementById('hour').innerText = returnData(hour);
     document.getElementById('minute').innerText = returnData(minute);
-    document.getElemetnById('second').innerText = returnData(second);
+    document.getElementById('second').innerText = returnData(second);
     document.getElementById('millisecond').innerText = returnData(millisecond); // changing the .innerText to show the millisecond
-  }
+} 
+}
+
+//   document.timer.start.onclick = () => startTimer();
 
   function returnData(input){
       return input > 10 ? input : `0${input}`
