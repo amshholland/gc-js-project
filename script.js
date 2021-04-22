@@ -32,19 +32,23 @@ function shuffleCards(array) {
     return array;
 };
 
+// Shows shuffled cards for a brief moment after player pushed start
+function peekShuffled() {
+
+}
+
 document.body.onload = shuffleCards(cardImgs);
 
-// Delay card src being changed until after card is flipped
-setTimeout(() => {
-    // Modify src to different photo
-    card1.src = src;
-}, 100);
+// Shows all cards unshuffled
+function unshuffled() {
+
+}
+
+
 
 function compare(openedCards) {
     let card1 = openedCards[0];
     let card2 = openedCards[1];
-    console.log(card1.getAttribute.src);
-    console.log(card2.getAttribute.src);
     // Compare cards flipped with src
     if (card1.src === card2.src) {
         return matched();
@@ -54,12 +58,18 @@ function compare(openedCards) {
     }
 }
 
+let matchCount = 0;
 function matched() {
+    matchCount++;
+    console.log(`matchCount: ${matchCount}`); //*********** */
     setTimeout(() => {
         for (card of openedCards) {
             card.classList.add('matched');
         }
     }, 1500);
+    setTimeout(() => {
+        emptyArray();
+    }, 1510);
 }
 
 function flipBackOver() {
@@ -70,6 +80,15 @@ function flipBackOver() {
             card.classList.remove('flipCard');
         }
     }, 1500);
+    setTimeout(() => {
+        emptyArray();
+    }, 1510);
+}
+
+function emptyArray() {
+    console.log(openedCards);
+    openedCards = [];
+    console.log(openedCards);
 }
 
 let openedCards = [];
@@ -99,6 +118,10 @@ cardsDiv.addEventListener('click', (e) => {
     }
 });
 
+function endGame() {
+
+}
+
 // Flip cards after they're clicked
 // Limit flipped cards to 2 -- absolutely stumped
 // push to array
@@ -107,6 +130,3 @@ cardsDiv.addEventListener('click', (e) => {
 // If cards match, remove from board
 // If cards do not match, flip back over 
 // Remove classList flipcard
-function limit2(count) {
-
-}
