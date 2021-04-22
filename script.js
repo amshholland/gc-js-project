@@ -20,29 +20,36 @@ const cardImgs = ["images/picture1.jpg",
 
 let openedCards = [];
 const cardsDiv = document.querySelector('.cards');
+let matchCount = 0;
 
-document.body.onload = shuffleCards(cardImgs);
+let leaders = [CONSTRUCTORS];
 
-// function to shuffle the order of the image array
-function shuffleCards(array) {
-    var currentIndex = array.length, tempValue, rndmNum;
+// document.body.onload = shuffleCards(cardImgs);
 
-    while (currentIndex !== 0) {
-        rndmNum = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        tempValue = array[currentIndex];
-        array[currentIndex] = array[rndmNum];
-        array[rndmNum] = tempValue;
-    }
-    console.log(array);
-    return array;
-};
+// // function to shuffle the order of the image array
+// function shuffleCards(array) {
+//     var currentIndex = array.length, tempValue, rndmNum;
 
-// Shows shuffled cards for a brief moment after player pushed start
+//     while (currentIndex !== 0) {
+//         rndmNum = Math.floor(Math.random() * currentIndex);
+//         currentIndex -= 1;
+//         tempValue = array[currentIndex];
+//         array[currentIndex] = array[rndmNum];
+//         array[rndmNum] = tempValue;
+//     }
+//     console.log(array);
+//     return array;
+// };
+
+// Shows shuffled cards for a brief moment after player pushed start ********************* on start button
 function peekShuffled() {
-
+    for (card of cards) {
+        for (cardImg of cardImgs) {
+            cards[card].classList.add('flipCard');
+            cards[card].src = cardImgs[cardImg];
+        }
+    }
 }
-
 
 // Shows all cards unshuffled
 function unshuffled() {
@@ -57,22 +64,25 @@ function compare() {
     console.log(cardImgs[card2.getAttribute('data-index')]);
 
     if (cardImgs[card1.getAttribute('data-index')] === cardImgs[card2.getAttribute('data-index')]) {
-        return matched();
+        return matched(cardImgs[card1.getAttribute('data-index')]);
     }
     else {
         flipBackOver();
     }
 }
 
-let matchCount = 0;
-function matched() {
+function matched(card) {
     matchCount++;
+    let src = card;
     console.log(matchCount);
     setTimeout(() => {
         for (card of openedCards) {
             card.classList.add('matched');
+            console.log(document.getElementById('matchedCards').innerHTML = `<img class="card" src="${src}" />`);
         }
     }, 1500);
+
+
     if (matchCount === 9) {
         stopTimer();
     }

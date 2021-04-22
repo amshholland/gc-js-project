@@ -130,6 +130,10 @@ button {
     z-index: 1;
 }
 
+.matchedCards {
+    visibility: hidden;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -158,4 +162,8 @@ button {
     footer {
         align-self: flex-start;
     }
+    .matchedCards {
+        visibility: visible;
+    }
+
 }
