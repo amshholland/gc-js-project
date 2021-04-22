@@ -103,3 +103,11 @@ button {
     font-family: 'Cinzel', serif;
     letter-spacing: 1px;
 }
+
+@media screen and (min-width: 768px) {
+    .cards {
+        flex-direction: row;
+        height: 350px;
+        width: 675px;
+    }
+}
