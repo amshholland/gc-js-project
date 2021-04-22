@@ -6,11 +6,11 @@ const reset = document.getElementById("reset");
 // adjusting the labels for seconds/minutes in the html
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
-var totalSeconds = 0;
+var totalSeconds = -1;
 var myVar = setTime();
 
 //when you click on start, this well set the timer to start going.
-start.onclick = () => setInterval(setTime, 1000);
+let startTimer = start.onclick = () => setInterval(setTime, 1000);
 reset.onclick = () => stopPlaying;
 let playing;
 

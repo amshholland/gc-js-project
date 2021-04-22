@@ -21,22 +21,22 @@ const cardImgs = ["images/picture1.jpg",
 let openedCards = [];
 const cardsDiv = document.querySelector('.cards');
 
-document.body.onload = shuffleCards(cardImgs);
+// document.body.onload = shuffleCards(cardImgs);
 
 // function to shuffle the order of the image array
-function shuffleCards(array) {
-    var currentIndex = array.length, tempValue, rndmNum;
+// function shuffleCards(array) {
+//     var currentIndex = array.length, tempValue, rndmNum;
 
-    while (currentIndex !== 0) {
-        rndmNum = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        tempValue = array[currentIndex];
-        array[currentIndex] = array[rndmNum];
-        array[rndmNum] = tempValue;
-    }
-    console.log(array);
-    return array;
-};
+//     while (currentIndex !== 0) {
+//         rndmNum = Math.floor(Math.random() * currentIndex);
+//         currentIndex -= 1;
+//         tempValue = array[currentIndex];
+//         array[currentIndex] = array[rndmNum];
+//         array[rndmNum] = tempValue;
+//     }
+//     console.log(array);
+//     return array;
+// };
 
 // Shows shuffled cards for a brief moment after player pushed start
 function peekShuffled() {
@@ -67,11 +67,15 @@ function compare() {
 let matchCount = 0;
 function matched() {
     matchCount++;
+    console.log(matchCount);
     setTimeout(() => {
         for (card of openedCards) {
             card.classList.add('matched');
         }
     }, 1500);
+    if (matchCount === 9) {
+        clearInterval(setTime);
+    }
     setTimeout(() => {
         emptyArray();
     }, 1510);
