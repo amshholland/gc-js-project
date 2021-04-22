@@ -18,8 +18,6 @@ const cardImgs = ["images/picture1.jpg",
     "images/picture8.jpg",
     "images/picture9.jpg"];
 
-    var openedCards = [];
-
 // function to shuffle the order of the image array
 function shuffleCards(array) {
     var currentIndex = array.length, tempValue, rndmNum;
@@ -36,9 +34,47 @@ function shuffleCards(array) {
 
 document.body.onload = shuffleCards(cardImgs);
 
-// Flip cards after they're clicked
-const cardsDiv = document.querySelector('.cards');
+// Delay card src being changed until after card is flipped
+setTimeout(() => {
+    // Modify src to different photo
+    card1.src = src;
+}, 100);
 
+function compare(openedCards) {
+    let card1 = openedCards[0];
+    let card2 = openedCards[1];
+    console.log(card1.getAttribute.src);
+    console.log(card2.getAttribute.src);
+    // Compare cards flipped with src
+    if (card1.src === card2.src) {
+        return matched();
+    }
+    else {
+        flipBackOver();
+    }
+}
+
+function matched() {
+    setTimeout(() => {
+        for (card of openedCards) {
+            card.classList.add('matched');
+        }
+    }, 1500);
+}
+
+function flipBackOver() {
+    let src = 'images/cardFront.jpg'
+    setTimeout(() => {
+        for (card of openedCards) {
+            card.src = src;
+            card.classList.remove('flipCard');
+        }
+    }, 1500);
+}
+
+let openedCards = [];
+
+const cardsDiv = document.querySelector('.cards');
 cardsDiv.addEventListener('click', (e) => {
     // Gets index set in data-index attribute from img's in HTML doc
     let index = e.target.getAttribute('data-index');
@@ -53,24 +89,24 @@ cardsDiv.addEventListener('click', (e) => {
         setTimeout(() => {
             e.target.src = src;
         }, 100)
-        // Add class to card to enlarge when clicked
-        setTimeout(() => {
-         e.target.classList.add('popOut');
-        }, 100)
-        // Adds opened cards to empty array
-        // Then removes class once two are clicked (array length === 2)
         setTimeout(() => {
             openedCards.push(e.target);
             var len = openedCards.length;
             if (len === 2) {
-               // if statement to check if they match?
-               openedCards[0].classList.remove('popOut');
-               // currently only removes class from first tile then empties array
-               openedCards[1].classList.remove('popOut');
-               openedCards = [];
-             }
+                return compare(openedCards);
+            }
         }, 200)
-
-         console.log(openedCards);
     }
 });
+
+// Flip cards after they're clicked
+// Limit flipped cards to 2 -- absolutely stumped
+// push to array
+// Compare cards flipped with src, showing both while comparing
+// Delay to allow user to compare cards
+// If cards match, remove from board
+// If cards do not match, flip back over 
+// Remove classList flipcard
+function limit2(count) {
+
+}
