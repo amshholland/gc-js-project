@@ -12,7 +12,6 @@ body {
 }
 
 h1 {
-    
     margin: 0;
     font-size: 36pt;
     color: white
@@ -29,12 +28,17 @@ h2 {
 .navbar {
     display: flex;
     flex-direction: row;
+    align-content: center;
     padding: 10px;
     color:white;
     background-color:#BF1A2F;
     border-radius: 15px;
+    width: 200px;
 }
-
+.timer{
+    font-size: 16pt;
+    padding: 10px;
+}
 
 .username {
     background-color:#BF1A2F;
