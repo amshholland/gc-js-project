@@ -73,14 +73,12 @@ li {
     box-shadow: 1px 1px 1px grey;
 }
 
+/* Flips and enlarges card class to add for card enlarge */
+
 .flipCard {
     transform: scale(0.97);
     transition: transform .4s;
     transform: rotateY(180deg);
-}
-
-/* class to add for card enlarge */
-.popOut {
     position: relative;
     transform: scale(1.2);
     z-index: 999;
