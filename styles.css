@@ -25,6 +25,7 @@ h2 {
 
 }
 
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -34,6 +35,13 @@ h2 {
     border-radius: 15px;
 }
 
+
+.username {
+    background-color:#BF1A2F;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
 input {
     width: 10vw;
     border: none;
