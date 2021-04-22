@@ -94,7 +94,6 @@ img {
 
 button {
     height: 40px;
-    width: 100px;
     border:none;
     border-radius: 10px;
     background-color: #BF1A2F;
@@ -102,6 +101,22 @@ button {
     color: white;
     font-family: 'Cinzel', serif;
     letter-spacing: 1px;
+    margin: 4px;
+}
+
+.leaderbox {
+    display: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: white;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 @media screen and (min-width: 768px) {
@@ -109,5 +124,23 @@ button {
         flex-direction: row;
         height: 350px;
         width: 675px;
+    }
+    .leaderbox {
+        display: block;
+        align-self: flex-end;
+        margin: 20px;
+    }
+    .leaderbox, .fixed-leaderboard {
+        display: block;
+        border: 1px solid black;
+    }
+    .dropdown {
+        display: none;
+    }
+    select {
+        display: none;
+    }
+    footer {
+        align-self: flex-start;
     }
 }
