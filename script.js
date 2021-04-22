@@ -59,15 +59,18 @@ cardsDiv.addEventListener('click', (e) => {
         }, 100)
         // Adds opened cards to empty array
         // Then removes class once two are clicked (array length === 2)
-        openedCards.push(e.target);
-        var len = openedCards.length;
-        if (len === 2) {
-           // if statement to check if they match?
-           openedCards[0].classList.remove('popOut');
-           // currently only removes class from first tile then empties array
-           openedCards[1].classList.remove('popOut');
-           openedCards = [];
-         }
+        setTimeout(() => {
+            openedCards.push(e.target);
+            var len = openedCards.length;
+            if (len === 2) {
+               // if statement to check if they match?
+               openedCards[0].classList.remove('popOut');
+               // currently only removes class from first tile then empties array
+               openedCards[1].classList.remove('popOut');
+               openedCards = [];
+             }
+        }, 200)
+
          console.log(openedCards);
     }
 });
