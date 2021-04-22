@@ -79,6 +79,7 @@ li {
     transform: rotateY(180deg);
 }
 
+/* class to add for card enlarge */
 .popOut {
     position: relative;
     transform: scale(1.2);

@@ -18,6 +18,8 @@ const cardImgs = ["images/picture1.jpg",
     "images/picture8.jpg",
     "images/picture9.jpg"];
 
+    var openedCards = [];
+
 // function to shuffle the order of the image array
 function shuffleCards(array) {
     var currentIndex = array.length, tempValue, rndmNum;
@@ -47,19 +49,25 @@ cardsDiv.addEventListener('click', (e) => {
         // Simulate card being flipped
         e.target.classList.toggle('flipCard');
         // Delay card src being changed until after card is flipped
+        // Modify src to different photo
         setTimeout(() => {
             e.target.src = src;
         }, 100)
-        // Modify src to different photo
+        // Add class to card to enlarge when clicked
         setTimeout(() => {
          e.target.classList.add('popOut');
         }, 100)
-
+        // Adds opened cards to empty array
+        // Then removes class once two are clicked (array length === 2)
+        openedCards.push(e.target);
+        var len = openedCards.length;
+        if (len === 2) {
+           // if statement to check if they match?
+           openedCards[0].classList.remove('popOut');
+           // currently only removes class from first tile then empties array
+           openedCards[1].classList.remove('popOut');
+           openedCards = [];
+         }
+         console.log(openedCards);
     }
 });
-
-// cardsDiv.addEventListener('click', (e) => {
-//    if (e.target.className === 'card') {
-//       e.target.classList.toggle('popOut');
-//    }
-// });
