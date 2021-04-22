@@ -21,6 +21,8 @@ const cardImgs = ["images/picture1.jpg",
 let openedCards = [];
 const cardsDiv = document.querySelector('.cards');
 
+document.body.onload = shuffleCards(cardImgs);
+
 // function to shuffle the order of the image array
 function shuffleCards(array) {
     var currentIndex = array.length, tempValue, rndmNum;
@@ -41,14 +43,11 @@ function peekShuffled() {
 
 }
 
-document.body.onload = shuffleCards(cardImgs);
 
 // Shows all cards unshuffled
 function unshuffled() {
 
 }
-
-
 
 function compare() {
     let card1 = openedCards[0];
@@ -68,7 +67,6 @@ function compare() {
 let matchCount = 0;
 function matched() {
     matchCount++;
-    console.log(`matchCount: ${matchCount}`); //*********** */
     setTimeout(() => {
         for (card of openedCards) {
             card.classList.add('matched');
@@ -118,7 +116,6 @@ cardsDiv.addEventListener('click', (e) => {
         }, 100)
         openedCards.push(e.target);
         setTimeout(() => {
-
             var len = openedCards.length;
             if (len === 2) {
                 return compare();
@@ -131,11 +128,4 @@ function endGame() {
 
 }
 
-// Flip cards after they're clicked
-// Limit flipped cards to 2 -- absolutely stumped
-// push to array
-// Compare cards flipped with src, showing both while comparing
-// Delay to allow user to compare cards
-// If cards match, remove from board
-// If cards do not match, flip back over 
-// Remove classList flipcard
+
