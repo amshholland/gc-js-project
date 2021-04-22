@@ -18,6 +18,9 @@ const cardImgs = ["images/picture1.jpg",
     "images/picture8.jpg",
     "images/picture9.jpg"];
 
+let openedCards = [];
+const cardsDiv = document.querySelector('.cards');
+
 // function to shuffle the order of the image array
 function shuffleCards(array) {
     var currentIndex = array.length, tempValue, rndmNum;
@@ -29,6 +32,7 @@ function shuffleCards(array) {
         array[currentIndex] = array[rndmNum];
         array[rndmNum] = tempValue;
     }
+    console.log(array);
     return array;
 };
 
@@ -46,11 +50,14 @@ function unshuffled() {
 
 
 
-function compare(openedCards) {
+function compare() {
     let card1 = openedCards[0];
     let card2 = openedCards[1];
     // Compare cards flipped with src
-    if (card1.src === card2.src) {
+    console.log(cardImgs[card1.getAttribute('data-index')]);
+    console.log(cardImgs[card2.getAttribute('data-index')]);
+
+    if (cardImgs[card1.getAttribute('data-index')] === cardImgs[card2.getAttribute('data-index')]) {
         return matched();
     }
     else {
@@ -91,9 +98,7 @@ function emptyArray() {
     console.log(openedCards);
 }
 
-let openedCards = [];
 
-const cardsDiv = document.querySelector('.cards');
 cardsDiv.addEventListener('click', (e) => {
     // Gets index set in data-index attribute from img's in HTML doc
     let index = e.target.getAttribute('data-index');
@@ -101,6 +106,9 @@ cardsDiv.addEventListener('click', (e) => {
     let src = cardImgs[index];
 
     if (e.target.className === 'card') {
+        if (openedCards.length === 2) {
+            return;
+        }
         // Simulate card being flipped
         e.target.classList.toggle('flipCard');
         // Delay card src being changed until after card is flipped
@@ -108,11 +116,12 @@ cardsDiv.addEventListener('click', (e) => {
         setTimeout(() => {
             e.target.src = src;
         }, 100)
+        openedCards.push(e.target);
         setTimeout(() => {
-            openedCards.push(e.target);
+
             var len = openedCards.length;
             if (len === 2) {
-                return compare(openedCards);
+                return compare();
             }
         }, 200)
     }
