@@ -1,79 +1,3 @@
-// // array of image objects, consists of back of card and front of card
-// let cardImgs = [
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture1.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture2.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture3.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture4.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture5.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture6.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture7.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture8.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture9.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture1.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture2.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture3.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture4.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture5.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture6.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture7.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture8.jpg" />'
-//     },
-//     {
-//         front: '<img src="images/cardFront.jpg"',
-//         back: '<img src="images/picture9.jpg" />'
-//     }
-// ];
-
 // Array of images to be shuffled
 const cardImgs = ["images/picture1.jpg",
     "images/picture2.jpg",
@@ -127,6 +51,15 @@ cardsDiv.addEventListener('click', (e) => {
             e.target.src = src;
         }, 100)
         // Modify src to different photo
+        setTimeout(() => {
+         e.target.classList.add('popOut');
+        }, 100)
 
     }
 });
+
+// cardsDiv.addEventListener('click', (e) => {
+//    if (e.target.className === 'card') {
+//       e.target.classList.toggle('popOut');
+//    }
+// });

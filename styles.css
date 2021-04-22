@@ -79,6 +79,12 @@ li {
     transform: rotateY(180deg);
 }
 
+.popOut {
+    position: relative;
+    transform: scale(1.2);
+    z-index: 999;
+}
+
 img {
     height: 100%;
     width: 100%;
