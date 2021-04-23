@@ -65,7 +65,7 @@ function compare() {
         return matched(cardImgs[card1.getAttribute('data-index')]);
     }
     else {
-        return noMatch();
+        return flipBackOver();
     }
 }
 
@@ -87,7 +87,7 @@ function matched(card) {
     }, 1510);
 }
 
-function noMatch() {
+function flipBackOver() {
     let src = 'images/cardFront.jpg'
     setTimeout(() => {
         for (card of openedCards) {
@@ -107,6 +107,7 @@ function noMatch() {
         emptyArray();
     }, 1540);
 }
+
 
 
 function emptyArray() {
