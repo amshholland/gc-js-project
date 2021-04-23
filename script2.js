@@ -28,5 +28,5 @@ function pad(val) {
   if (valString.length < 2) {
     return "0" + valString;
   }
-    return valString;
-  }
+  return valString;
+}

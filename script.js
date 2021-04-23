@@ -19,42 +19,42 @@ const cardImgs = ["images/picture1.jpg",
     "images/picture9.jpg"];
 
 let openedCards = [];
+// const cards = document.querySelectorAll('.card');
 const cardsDiv = document.querySelector('.cards');
+console.log(cardsDiv);
 let matchCount = 0;
+const reset = document.getElementById('reset');
 
-let leaders = [CONSTRUCTORS];
+for (car in cardsDiv) {
+    console.log(car);
+}
+// let leaders = [CONSTRUCTORS];
 
-// document.body.onload = shuffleCards(cardImgs);
+console.log(document.body.onload = shuffleCards(cardImgs));
 
-// // function to shuffle the order of the image array
-// function shuffleCards(array) {
-//     var currentIndex = array.length, tempValue, rndmNum;
+// function to shuffle the order of the image array
+function shuffleCards(array) {
+    var currentIndex = array.length, tempValue, rndmNum;
 
-//     while (currentIndex !== 0) {
-//         rndmNum = Math.floor(Math.random() * currentIndex);
-//         currentIndex -= 1;
-//         tempValue = array[currentIndex];
-//         array[currentIndex] = array[rndmNum];
-//         array[rndmNum] = tempValue;
-//     }
-//     console.log(array);
-//     return array;
-// };
+    while (currentIndex !== 0) {
+        rndmNum = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        tempValue = array[currentIndex];
+        array[currentIndex] = array[rndmNum];
+        array[rndmNum] = tempValue;
+    }
+    // showAllCards();
+};
 
 // Shows shuffled cards for a brief moment after player pushed start ********************* on start button
-function peekShuffled() {
-    for (card of cards) {
-        for (cardImg of cardImgs) {
-            cards[card].classList.add('flipCard');
-            cards[card].src = cardImgs[cardImg];
-        }
-    }
-}
-
-// Shows all cards unshuffled
-function unshuffled() {
-
-}
+// function showAllCards() {
+//     for (card in cards) {
+//         for (cardImg in cardImgs) {
+//             card.classList.add('flipCard');
+//             cards.src = cardImgs[cardImg];
+//         }
+//     }
+// }
 
 function compare() {
     let card1 = openedCards[0];
@@ -66,9 +66,7 @@ function compare() {
     if (cardImgs[card1.getAttribute('data-index')] === cardImgs[card2.getAttribute('data-index')]) {
         return matched(cardImgs[card1.getAttribute('data-index')]);
     }
-    else {
-        flipBackOver();
-    }
+    flipBackOver();
 }
 
 function matched(card) {
@@ -81,7 +79,6 @@ function matched(card) {
             console.log(document.getElementById('matchedCards').innerHTML = `<img class="card" src="${src}" />`);
         }
     }, 1500);
-
 
     if (matchCount === 9) {
         stopTimer();
@@ -138,8 +135,11 @@ cardsDiv.addEventListener('click', (e) => {
     }
 });
 
-function endGame() {
-
-}
+reset.addEventListener('click', (e) => {
+    flipBackOver()
+    match = 0;
+    stopTimer();
+    return shuffleCards(cardImgs);
+});
 
 
