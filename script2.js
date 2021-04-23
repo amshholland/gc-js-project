@@ -8,8 +8,13 @@ var secondsLabel = document.getElementById("seconds");
 var totalSeconds = -1;
 var myVarInterval = 0;
 
+// variable to store name in at start of game
+let useName = document.getElementById("name");
+
 start.addEventListener("click", (e) => {
   myVarInterval = setInterval(setTime, 1000);
+// when start is clicked, store name in variable
+  useName = useName.value;
 });
 
 //setting the time to add seconds, then when reaching 60 seconds, start adding minutes.
