@@ -8,8 +8,12 @@ var secondsLabel = document.getElementById("seconds");
 var totalSeconds = -1;
 var myVarInterval = 0;
 
+let leaderboard = [];
+
 // variable to store name in at start of game
 let useName = document.getElementById("name");
+// variable to store time
+let useTime = document.getElementById("gametime");
 
 start.addEventListener("click", (e) => {
   myVarInterval = setInterval(setTime, 1000);
@@ -34,4 +38,21 @@ function pad(val) {
     return "0" + valString;
   }
   return valString;
+}
+
+// function to assign variable with time after game ends
+function finalTime() {
+  useTime = useTime.innerText;
+}
+
+// class/constructor to make array of leaderboard
+function NewScore(name, time) {
+  this.name = name;
+  this.time = time;
+}
+// function to add score to leaderboard
+function addScore(name, time) {
+  var score = new NewScore(name, time); // create instince of object
+  leaderboard.push(score);
+  // after push use Number(array.time).sort() to order array based on time
 }

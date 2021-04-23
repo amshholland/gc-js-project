@@ -28,7 +28,6 @@ const reset = document.getElementById('reset');
 for (car in cardsDiv) {
     console.log(car);
 }
-// let leaders = [CONSTRUCTORS];
 
 console.log(document.body.onload = shuffleCards(cardImgs));
 
@@ -82,6 +81,7 @@ function matched(card) {
 
     if (matchCount === 9) {
         stopTimer();
+        finalTime();
     }
     setTimeout(() => {
         emptyArray();
