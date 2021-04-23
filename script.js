@@ -91,19 +91,21 @@ function noMatch() {
     let src = 'images/cardFront.jpg'
     setTimeout(() => {
         for (card of openedCards) {
-            card.classList.remove('flipOver');
+            card.classList.remove('flipCard');
             card.classList.add('flipBackOver');
         }
     }, 1500);
     setTimeout(() => {
         for (card of openedCards) {
             card.src = src;
+            card.classList.remove('flipBackOver');
         }
-    }, 1500);
+    }, 1530);
+    console.log(openedCards);
 
     setTimeout(() => {
         emptyArray();
-    }, 1510);
+    }, 1540);
 }
 
 
