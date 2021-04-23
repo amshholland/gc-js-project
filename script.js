@@ -29,21 +29,21 @@ for (car in cardsDiv) {
     console.log(car);
 }
 
-console.log(document.body.onload = shuffleCards(cardImgs));
+// console.log(document.body.onload = shuffleCards(cardImgs));
 
 // function to shuffle the order of the image array
-function shuffleCards(array) {
-    var currentIndex = array.length, tempValue, rndmNum;
+// function shuffleCards(array) {
+//     var currentIndex = array.length, tempValue, rndmNum;
 
-    while (currentIndex !== 0) {
-        rndmNum = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        tempValue = array[currentIndex];
-        array[currentIndex] = array[rndmNum];
-        array[rndmNum] = tempValue;
-    }
-    // showAllCards();
-};
+//     while (currentIndex !== 0) {
+//         rndmNum = Math.floor(Math.random() * currentIndex);
+//         currentIndex -= 1;
+//         tempValue = array[currentIndex];
+//         array[currentIndex] = array[rndmNum];
+//         array[rndmNum] = tempValue;
+//     }
+// showAllCards();
+// };
 
 // Shows shuffled cards for a brief moment after player pushed start ********************* on start button
 // function showAllCards() {

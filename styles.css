@@ -24,11 +24,11 @@ h2 {
 
 }
 
-
 .navbar {
     display: flex;
     flex-direction: row;
     align-content: center;
+    justify-content: space-around;
     padding: 10px;
     color:white;
     background-color:#BF1A2F;
@@ -38,6 +38,7 @@ h2 {
 .timer{
     font-size: 16pt;
     padding: 10px;
+
 }
 
 .username {
@@ -87,7 +88,6 @@ li {
 }
 
 /* Flips and enlarges card class to add for card enlarge */
-
 .flipCard {
     transform: scale(0.97);
     transition: transform .4s;
@@ -97,7 +97,7 @@ li {
     z-index: 999;
 }
 
-.matched {
+.matched, .matchedCardsBorder {
     visibility: hidden;
 }
 
@@ -144,14 +144,25 @@ button {
         height: 350px;
         width: 675px;
     }
+    h2 {
+        text-align: center;
+    }
+    .discardLeaderbox {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 300px;
+        width: 675px;
+        border: 12px solid #fdbd48 ;
+    }
     .leaderbox {
         display: block;
-        align-self: flex-end;
-        margin: 20px;
     }
     .leaderbox, .fixed-leaderboard {
         display: block;
-        border: 1px solid black;
+        width: 300px;
+        height: 250px;
+        border: 6px solid #fe7401;
     }
     .dropdown {
         display: none;
@@ -161,6 +172,14 @@ button {
     }
     footer {
         align-self: flex-start;
+    }
+
+    .matchedCardsBorder {
+        visibility: visible;
+        border: 6px solid #fe7401;
+        margin: 0;
+        width: 300px;
+        height: 250px;
     }
     .matchedCards {
         visibility: visible;
