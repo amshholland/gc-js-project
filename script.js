@@ -75,7 +75,7 @@ function matched(card) {
     setTimeout(() => {
         for (card of openedCards) {
             card.classList.add('matched');
-            document.getElementById('matchedCards').innerHTML = `<img class="card" src="${src}" />`;
+            document.getElementById('matchedCards').insertAdjacentHTML("afterend", `<img class="card" src="${src}" />`);
         }
     }, 1500);
 
