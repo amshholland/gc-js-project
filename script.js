@@ -39,6 +39,7 @@ function shuffleCards(array) {
         array[currentIndex] = array[rndmNum];
         array[rndmNum] = tempValue;
     }
+    console.log(array);
     return array
 };
 
@@ -53,7 +54,6 @@ function showAllCards(card) {
             card.src = 'images/cardFront.jpg';
             setTimeout(() => {
             }, 100);
-            console.log(card);
         }
     }, 4000);
 }
@@ -104,11 +104,9 @@ function flipBackOver() {
     }
 }
 
-
 function emptyArray() {
     openedCards = [];
 }
-
 
 cardsDiv.addEventListener('click', (e) => {
     // Gets index set in data-index attribute from img's in HTML doc
@@ -141,7 +139,5 @@ reset.addEventListener('click', (e) => {
     flipBackOver()
     match = 0;
     stopTimer();
-    return shuffleCards(cardImgs);
+    shuffleCards(cardImgs);
 });
-
-

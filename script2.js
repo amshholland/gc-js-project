@@ -18,6 +18,10 @@ let useTime = document.getElementById("gametime");
 // When start clicked, user get peek of shuffled cards for 4 seconds, then timer starts
 start.addEventListener("click", (e) => {
   showAllCards(cardImgs);
+  totalSeconds = 0;
+  secondsLabel.innerHTML = '00';
+  minutesLabel.innerHTML = '00';
+
   setTimeout(() => {
     myVarInterval = setInterval(setTime, 1000);
     // when start is clicked, store name in variable
