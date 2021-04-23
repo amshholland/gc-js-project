@@ -80,8 +80,7 @@ function matched(card) {
     }, 1500);
 
     if (matchCount === 9) {
-        stopTimer();
-        finalTime();
+        gameOver();
     }
     setTimeout(() => {
         emptyArray();
@@ -138,6 +137,12 @@ cardsDiv.addEventListener('click', (e) => {
         }, 200)
     }
 });
+
+function gameOver() {
+    stopTimer();
+    finalTime();
+    addScore(useName, useTime);
+}
 
 reset.addEventListener('click', (e) => {
     flipBackOver()
