@@ -94,21 +94,22 @@ function noMatch() {
         for (card of openedCards) {
             card.classList.remove('flipOver');
             card.classList.add('flipBackOver');
-
+        }
+    }, 1500);
+    setTimeout(() => {
+        for (card of openedCards) {
+            card.src = src;
         }
     }, 1500);
 
     setTimeout(() => {
-        card.src = src;
         emptyArray();
     }, 1510);
 }
 
 
 function emptyArray() {
-    console.log(openedCards);
     openedCards = [];
-    console.log(openedCards);
 }
 
 cardsDiv.addEventListener('click', (e) => {
