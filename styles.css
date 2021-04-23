@@ -90,10 +90,19 @@ li {
 /* Flips and enlarges card class to add for card enlarge */
 .flipCard {
     transform: scale(0.97);
-    transition: transform .4s;
+    transition: transform .5s;
     transform: rotateY(180deg);
     position: relative;
     transform: scale(1.2);
+    z-index: 999;
+}
+
+.flipBackOver {
+    transform: scale(0.97);
+    transition: transform .5s;
+    transform: rotateY(180deg);
+    position: relative;
+    transform: scale(1);
     z-index: 999;
 }
 

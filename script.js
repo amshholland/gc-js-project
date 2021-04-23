@@ -22,7 +22,6 @@ let openedCards = [];
 // const cards = document.querySelectorAll('.card');
 const cardsDiv = document.querySelector('.cards');
 let cards = document.querySelectorAll('.card');
-console.log(cardsDiv);
 let matchCount = 0;
 const reset = document.getElementById('reset');
 
@@ -39,7 +38,6 @@ function shuffleCards(array) {
         array[currentIndex] = array[rndmNum];
         array[rndmNum] = tempValue;
     }
-    console.log(array);
     return array
 };
 
@@ -66,17 +64,18 @@ function compare() {
     if (cardImgs[card1.getAttribute('data-index')] === cardImgs[card2.getAttribute('data-index')]) {
         return matched(cardImgs[card1.getAttribute('data-index')]);
     }
-    flipBackOver();
+    else {
+        return noMatch();
+    }
 }
 
 function matched(card) {
     matchCount++;
     let src = card;
-    console.log(matchCount);
     setTimeout(() => {
         for (card of openedCards) {
             card.classList.add('matched');
-            console.log(document.getElementById('matchedCards').innerHTML = `<img class="card" src="${src}" />`);
+            document.getElementById('matchedCards').innerHTML = `<img class="card" src="${src}" />`;
         }
     }, 1500);
 
@@ -89,23 +88,27 @@ function matched(card) {
     }, 1510);
 }
 
-function flipBackOver() {
+function noMatch() {
     let src = 'images/cardFront.jpg'
-    if (openedCards) {
-        setTimeout(() => {
-            for (card of openedCards) {
-                card.src = src;
-                card.classList.remove('flipCard');
-            }
-        }, 1500);
-        setTimeout(() => {
-            emptyArray();
-        }, 1510);
-    }
+    setTimeout(() => {
+        for (card of openedCards) {
+            card.classList.remove('flipOver');
+            card.classList.add('flipBackOver');
+
+        }
+    }, 1500);
+
+    setTimeout(() => {
+        card.src = src;
+        emptyArray();
+    }, 1510);
 }
 
+
 function emptyArray() {
+    console.log(openedCards);
     openedCards = [];
+    console.log(openedCards);
 }
 
 cardsDiv.addEventListener('click', (e) => {
