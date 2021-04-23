@@ -9,6 +9,7 @@ var totalSeconds = 0;
 var myVarInterval = 0;
 
 let leaderboard = [];
+let playerScore = document.getElementById("scores");
 
 // variable to store name in at start of game
 let useName = document.getElementById("name");
@@ -61,6 +62,7 @@ function NewScore(name, time) {
 // function to add score to leaderboard
 function addScore(name, time) {
   var score = new NewScore(name, time); // create instince of object
-  leaderboard.push(score);
+  leaderboard.unshift(score);
+  playerScore.insertAdjacentHTML("afterend", `<div>${leaderboard[0].name} ${leaderboard[0].time}</div>`);
   // after push use Number(array.time).sort() to order array based on time
 }
