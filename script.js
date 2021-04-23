@@ -21,46 +21,49 @@ const cardImgs = ["images/picture1.jpg",
 let openedCards = [];
 // const cards = document.querySelectorAll('.card');
 const cardsDiv = document.querySelector('.cards');
+let cards = document.querySelectorAll('.card');
 console.log(cardsDiv);
 let matchCount = 0;
 const reset = document.getElementById('reset');
 
-for (car in cardsDiv) {
-    console.log(car);
-}
-
-// console.log(document.body.onload = shuffleCards(cardImgs));
+document.body.onload = shuffleCards(cardImgs);
 
 // function to shuffle the order of the image array
-// function shuffleCards(array) {
-//     var currentIndex = array.length, tempValue, rndmNum;
+function shuffleCards(array) {
+    var currentIndex = array.length, tempValue, rndmNum;
 
-//     while (currentIndex !== 0) {
-//         rndmNum = Math.floor(Math.random() * currentIndex);
-//         currentIndex -= 1;
-//         tempValue = array[currentIndex];
-//         array[currentIndex] = array[rndmNum];
-//         array[rndmNum] = tempValue;
-//     }
-// showAllCards();
-// };
+    while (currentIndex !== 0) {
+        rndmNum = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        tempValue = array[currentIndex];
+        array[currentIndex] = array[rndmNum];
+        array[rndmNum] = tempValue;
+    }
+    showAllCards();
+};
 
 // Shows shuffled cards for a brief moment after player pushed start ********************* on start button
-// function showAllCards() {
-//     for (card in cards) {
-//         for (cardImg in cardImgs) {
-//             card.classList.add('flipCard');
-//             cards.src = cardImgs[cardImg];
-//         }
-//     }
-// }
+function showAllCards(card) {
+    for (card in cards) {
+        console.log(cards[card]);
+        for (cardImg in cardImgs) {
+            cards[card].classList.toggle('flipCard');
+            setTimeout(() => {
+                cards[card].src = cardImg;
+            }, 100)
+        }
 
+    }
+}
+
+// cards.forEach(function (currentValue, currentIndex, listObj) {
+//     console.log(currentValue + ', ' + currentIndex + ', ' + this);
+// });
+
+// Compare cards flipped with src
 function compare() {
     let card1 = openedCards[0];
     let card2 = openedCards[1];
-    // Compare cards flipped with src
-    console.log(cardImgs[card1.getAttribute('data-index')]);
-    console.log(cardImgs[card2.getAttribute('data-index')]);
 
     if (cardImgs[card1.getAttribute('data-index')] === cardImgs[card2.getAttribute('data-index')]) {
         return matched(cardImgs[card1.getAttribute('data-index')]);
