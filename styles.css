@@ -130,10 +130,14 @@ button {
     z-index: 1;
 }
 
+.matchedCards {
+    visibility: hidden;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
+/* changes orientation of board and position of elements for desktop */
 @media screen and (min-width: 768px) {
     .cards {
         flex-direction: row;
@@ -158,4 +162,8 @@ button {
     footer {
         align-self: flex-start;
     }
+    .matchedCards {
+        visibility: visible;
+    }
+
 }

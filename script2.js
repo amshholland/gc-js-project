@@ -1,36 +1,58 @@
 
 // grabbing 'start' and 'reset' buttons from html
 const start = document.getElementById("start");
-const reset = document.getElementById("reset");
 
 // adjusting the labels for seconds/minutes in the html
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
 var totalSeconds = -1;
-var myVar = setTime();
+var myVarInterval = 0;
 
-//when you click on start, this well set the timer to start going.
-start.onclick = () => setInterval(setTime, 1000);
-reset.onclick = () => stopPlaying;
-let playing;
+let leaderboard = [];
 
+// variable to store name in at start of game
+let useName = document.getElementById("name");
+// variable to store time
+let useTime = document.getElementById("gametime");
+
+start.addEventListener("click", (e) => {
+  myVarInterval = setInterval(setTime, 1000);
+// when start is clicked, store name in variable
+  useName = useName.value;
+});
 
 //setting the time to add seconds, then when reaching 60 seconds, start adding minutes.
 function setTime() {
-  {++totalSeconds;
+  ++totalSeconds;
   secondsLabel.innerHTML = pad(totalSeconds % 60);
-  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));} 
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function stopTimer() {
+  clearInterval(myVarInterval);
 }
 
 function pad(val) {
   var valString = val + "";
   if (valString.length < 2) {
     return "0" + valString;
-  } else {
-    return valString;
   }
+  return valString;
 }
-//clearing the interval to stop the timer when pressing reset.
-function stopPlaying(){
-    clearInterval(myVar)
+
+// function to assign variable with time after game ends
+function finalTime() {
+  useTime = useTime.innerText;
+}
+
+// class/constructor to make array of leaderboard
+function NewScore(name, time) {
+  this.name = name;
+  this.time = time;
+}
+// function to add score to leaderboard
+function addScore(name, time) {
+  var score = new NewScore(name, time); // create instince of object
+  leaderboard.push(score);
+  // after push use Number(array.time).sort() to order array based on time
 }

@@ -14,9 +14,13 @@
 
 <body>
     <div class="header-img"><img src="images/GCMemoryGame.png"></div>
-    
+
 
     <nav>
+        <form class="username">
+            <label for="name">Name</label>
+            <input type="text" id="name" value=""></input>
+        </form>
         <ul class="navbar">
             <div>
                 <li><button type="button" name="startTimer" id="start" >Start</button></li>
@@ -25,13 +29,8 @@
                 <li><label id="minutes">00</label>:<label id="seconds">00</label></li>
             </div>
         </ul>
-
-        <form class="username">
-            <label for="name">Name</label>
-            <input type="text" id="name"></input>
-        </form>  
-          
     </nav>
+
     <section class="cards">
         <img class="card" src="images/cardFront.jpg" data-index="0" />
         <img class="card" src="images/cardFront.jpg" data-index="1" />
@@ -52,25 +51,29 @@
         <img class="card" src="images/cardFront.jpg" data-index="16" />
         <img class="card" src="images/cardFront.jpg" data-index="17" />
     </section>
+
+    <h2>Discard Pile</h2>
+    <div id="matchedCards"></div>
+
     <div class="leaderbox">
-    <div id="leaderboard">Leaderboard</div>
-    <ul class="fixed-leaderboad">
-        <li id="first">1</li>
-        <li id="second">2</li>
-        <li id="third">3</li>
-        <li id="fourth">4</li>
-        <li id="fifth">5</li>
-    </ul>
+        <div id="leaderboard">Leaderboard</div>
+        <ul class="fixed-leaderboad">
+            <li id="first">1</li>
+            <li id="second">2</li>
+            <li id="third">3</li>
+            <li id="fourth">4</li>
+            <li id="fifth">5</li>
+        </ul>
     </div>
     <div class="dropdown">
         <button type="menu">Leaderboard</button>
-    <ul class="dropdown-content">
-        <li id="first">1</li>
-        <li id="second">2</li>
-        <li id="third">3</li>
-        <li id="fourth">4</li>
-        <li id="fifth">5</li>
-    </ul>
+        <ul class="dropdown-content">
+            <li id="first">1</li>
+            <li id="second">2</li>
+            <li id="third">3</li>
+            <li id="fourth">4</li>
+            <li id="fifth">5</li>
+        </ul>
     </div>
     <footer><button type="button" name="reset" id="reset">Reset</button></footer>
     <script src="script.js"></script>

@@ -19,7 +19,17 @@ const cardImgs = ["images/picture1.jpg",
     "images/picture9.jpg"];
 
 let openedCards = [];
+// const cards = document.querySelectorAll('.card');
 const cardsDiv = document.querySelector('.cards');
+console.log(cardsDiv);
+let matchCount = 0;
+const reset = document.getElementById('reset');
+
+for (car in cardsDiv) {
+    console.log(car);
+}
+
+console.log(document.body.onload = shuffleCards(cardImgs));
 
 // function to shuffle the order of the image array
 function shuffleCards(array) {
@@ -32,23 +42,18 @@ function shuffleCards(array) {
         array[currentIndex] = array[rndmNum];
         array[rndmNum] = tempValue;
     }
-    console.log(array);
-    return array;
+    // showAllCards();
 };
 
-// Shows shuffled cards for a brief moment after player pushed start
-function peekShuffled() {
-
-}
-
-document.body.onload = shuffleCards(cardImgs);
-
-// Shows all cards unshuffled
-function unshuffled() {
-
-}
-
-
+// Shows shuffled cards for a brief moment after player pushed start ********************* on start button
+// function showAllCards() {
+//     for (card in cards) {
+//         for (cardImg in cardImgs) {
+//             card.classList.add('flipCard');
+//             cards.src = cardImgs[cardImg];
+//         }
+//     }
+// }
 
 function compare() {
     let card1 = openedCards[0];
@@ -58,22 +63,26 @@ function compare() {
     console.log(cardImgs[card2.getAttribute('data-index')]);
 
     if (cardImgs[card1.getAttribute('data-index')] === cardImgs[card2.getAttribute('data-index')]) {
-        return matched();
+        return matched(cardImgs[card1.getAttribute('data-index')]);
     }
-    else {
-        flipBackOver();
-    }
+    flipBackOver();
 }
 
-let matchCount = 0;
-function matched() {
+function matched(card) {
     matchCount++;
-    console.log(`matchCount: ${matchCount}`); //*********** */
+    let src = card;
+    console.log(matchCount);
     setTimeout(() => {
         for (card of openedCards) {
             card.classList.add('matched');
+            console.log(document.getElementById('matchedCards').innerHTML = `<img class="card" src="${src}" />`);
         }
     }, 1500);
+
+    if (matchCount === 9) {
+        stopTimer();
+        finalTime();
+    }
     setTimeout(() => {
         emptyArray();
     }, 1510);
@@ -118,7 +127,6 @@ cardsDiv.addEventListener('click', (e) => {
         }, 100)
         openedCards.push(e.target);
         setTimeout(() => {
-
             var len = openedCards.length;
             if (len === 2) {
                 return compare();
@@ -127,15 +135,11 @@ cardsDiv.addEventListener('click', (e) => {
     }
 });
 
-function endGame() {
+reset.addEventListener('click', (e) => {
+    flipBackOver()
+    match = 0;
+    stopTimer();
+    return shuffleCards(cardImgs);
+});
 
-}
 
-// Flip cards after they're clicked
-// Limit flipped cards to 2 -- absolutely stumped
-// push to array
-// Compare cards flipped with src, showing both while comparing
-// Delay to allow user to compare cards
-// If cards match, remove from board
-// If cards do not match, flip back over 
-// Remove classList flipcard
