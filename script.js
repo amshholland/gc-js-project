@@ -39,22 +39,22 @@ function shuffleCards(array) {
         array[currentIndex] = array[rndmNum];
         array[rndmNum] = tempValue;
     }
-    showAllCards();
+    return array
 };
 
 // Shows shuffled cards for a brief moment after player pushed start ********************* on start button
-function showAllCards(card) {
-    for (card in cards) {
-        console.log(cards[card]);
-        for (cardImg in cardImgs) {
-            cards[card].classList.toggle('flipCard');
-            setTimeout(() => {
-                cards[card].src = cardImg;
-            }, 100)
-        }
+// function showAllCards(card) {
+//     for (card in cards) {
+//         console.log(cards[card]);
+//         for (cardImg in cardImgs) {
+//             cards[card].classList.toggle('flipCard');
+//             setTimeout(() => {
+//                 cards[card].src = cardImg;
+//             }, 100)
+//         }
 
-    }
-}
+//     }
+// }
 
 // cards.forEach(function (currentValue, currentIndex, listObj) {
 //     console.log(currentValue + ', ' + currentIndex + ', ' + this);
