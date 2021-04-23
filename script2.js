@@ -5,7 +5,7 @@ const start = document.getElementById("start");
 // adjusting the labels for seconds/minutes in the html
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
-var totalSeconds = -1;
+var totalSeconds = 0;
 var myVarInterval = 0;
 
 let leaderboard = [];
@@ -15,10 +15,14 @@ let useName = document.getElementById("name");
 // variable to store time
 let useTime = document.getElementById("gametime");
 
+// When start clicked, user get peek of shuffled cards for 4 seconds, then timer starts
 start.addEventListener("click", (e) => {
-  myVarInterval = setInterval(setTime, 1000);
-// when start is clicked, store name in variable
-  useName = useName.value;
+  showAllCards(cardImgs);
+  setTimeout(() => {
+    myVarInterval = setInterval(setTime, 1000);
+    // when start is clicked, store name in variable
+    useName = useName.value;
+  }, 4000);
 });
 
 //setting the time to add seconds, then when reaching 60 seconds, start adding minutes.

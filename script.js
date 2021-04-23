@@ -42,23 +42,21 @@ function shuffleCards(array) {
     return array
 };
 
-// Shows shuffled cards for a brief moment after player pushed start ********************* on start button
+// Shows shuffled cards for 4 seconds after player pushed start
 function showAllCards(card) {
-    for (card in cards) {
-        console.log(cards[card]);
-        for (cardImg in cardImgs) {
-            cards[card].classList.toggle('flipCard');
-            setTimeout(() => {
-                cards[card].src = cardImg;
-            }, 100)
-        }
-
+    for (card of cards) {
+        card.src = cardImgs[card.getAttribute('data-index')];
     }
+    setTimeout(() => {
+        for (card of cards) {
+            card.classList.remove('flipCard');
+            card.src = 'images/cardFront.jpg';
+            setTimeout(() => {
+            }, 100);
+            console.log(card);
+        }
+    }, 4000);
 }
-
-// cards.forEach(function (currentValue, currentIndex, listObj) {
-//     console.log(currentValue + ', ' + currentIndex + ', ' + this);
-// });
 
 // Compare cards flipped with src
 function compare() {
@@ -93,21 +91,22 @@ function matched(card) {
 
 function flipBackOver() {
     let src = 'images/cardFront.jpg'
-    setTimeout(() => {
-        for (card of openedCards) {
-            card.src = src;
-            card.classList.remove('flipCard');
-        }
-    }, 1500);
-    setTimeout(() => {
-        emptyArray();
-    }, 1510);
+    if (openedCards) {
+        setTimeout(() => {
+            for (card of openedCards) {
+                card.src = src;
+                card.classList.remove('flipCard');
+            }
+        }, 1500);
+        setTimeout(() => {
+            emptyArray();
+        }, 1510);
+    }
 }
 
+
 function emptyArray() {
-    console.log(openedCards);
     openedCards = [];
-    console.log(openedCards);
 }
 
 
